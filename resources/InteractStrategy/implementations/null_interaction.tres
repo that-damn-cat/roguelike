@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NullInteraction" load_steps=2 format=3 uid="uid://qbt53mi1kqij"]
+
+[ext_resource type="Script" uid="uid://b6te2xghvs88k" path="res://resources/InteractStrategy/strategies/NullInteractStrategy.gd" id="1_ipsyd"]
+
+[resource]
+script = ExtResource("1_ipsyd")
+metadata/_custom_type_script = "uid://b6te2xghvs88k"

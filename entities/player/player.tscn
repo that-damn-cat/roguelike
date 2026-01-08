@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://m8hey7rkcp7"]
+
+[ext_resource type="Texture2D" uid="uid://0xarvpfeo5xn" path="res://assets/gfx/player.png" id="1_symyc"]
+[ext_resource type="Script" uid="uid://cydean5krv64f" path="res://entities/player/player.gd" id="2_abrql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
+atlas = ExtResource("1_symyc")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
+atlas = ExtResource("1_symyc")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("1_symyc")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("1_symyc")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kdubu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e48y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epypp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Player" type="AnimatedSprite2D" node_paths=PackedStringArray("camera_target", "camera") groups=["player"]]
+sprite_frames = SubResource("SpriteFrames_kdubu")
+script = ExtResource("2_abrql")
+camera_target = NodePath("CameraTarget")
+camera = NodePath("CameraTarget/Camera2D")
+
+[node name="CameraTarget" type="Marker2D" parent="."]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="CameraTarget"]
+position_smoothing_speed = 12.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

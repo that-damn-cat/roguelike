@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcf3kqxj5r05g"]
+
+[ext_resource type="PackedScene" uid="uid://5w40jgc2843m" path="res://scenes/game.tscn" id="1_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://c76ej0e2xbihr" path="res://assets/bgm/extar_midnight_oil.wav" id="2_h2yge"]
+
+[node name="Main" type="Node"]
+
+[node name="GameSceneContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="GameSceneContainer"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1536, 864)
+size_2d_override = Vector2i(384, 216)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Game" parent="GameSceneContainer/GameViewport" instance=ExtResource("1_0xm2m")]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h2yge")
+autoplay = true
+bus = &"Music"
