@@ -25,6 +25,7 @@ mono_crash.*.json
 # Editor/project user files
 .vscode/
 .idea/
+.sh/
 *.sublime-workspace
 *.sublime-project
 
